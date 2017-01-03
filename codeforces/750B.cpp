@@ -8,20 +8,22 @@ using namespace std;
 char st[6];
 int main()
 {
-    int T,N,cut = 0,ok = 1;
+    int T,N,ans=0,ok=1;
     scanf("%d",&T);
-    while(T--){
+    while(T--)
+    {
         scanf("%d%s",&N,st);
-        if((cut == 0 && st[0] != 'S') || (cut == 20000 && st[0] != 'N'))
-            ok = 0;
-        if(st[0] == 'S')
-            cut += N;
-        else if(st[0] == 'N')
-            cut -= N;
-        if(cut < 0 || cut > 20000)
-            ok = 0;
+        if((ans==0&&st[0]!='S')||(ans==20000&&st[0]!='N'))
+            ok=0;
+        if(st[0]=='S')
+            ans+=N;
+        else if(st[0]=='N')
+            ans-=N;
+        if(ans<0||ans>20000)
+            ok =0;
+        //cout<<ans<<endl;
     }
-    if(!ok || cut != 0)
+    if(ok!=1||ans!=0)
         cout<<"NO"<<endl;
     else
         cout<<"YES"<<endl;
